@@ -1,3 +1,18 @@
 <h1>
-  {{title}}
+  Featured Photos
 </h1>
+<div fxLayoutAlign="space-around none">
+  <div>
+    <button type="type" (click)=triggerInput(featurePhoto1Input)>Upload Feature Photo 1</button>
+    <br>
+    <input #featurePhoto1Input style="display:none;" type="file" (change)="featuredPhotoSelected($event, 'url1')">
+    <br>
+    <img *ngIf="(featuredPhotosStream | async)?.url1 as photoUrl" [src]="photoUrl" alt="Featured Photo 1">
+  </div>
+  <div>    
+    <button type="type" (click)=triggerInput(featurePhoto2Input)>Upload Feature Photo 2</button>
+    <br>
+    <input #featurePhoto2Input style="display:none;" type="file" (change)="featuredPhotoSelected($event, 'url2')"><br>
+    <img *ngIf="(featuredPhotosStream | async)?.url2 as photoUrl" [src]="photoUrl" alt="Featured Photo 2">
+  </div>
+<div>
