@@ -15,4 +15,13 @@
     <input #featurePhoto2Input style="display:none;" type="file" (change)="featuredPhotoSelected($event, 'url2')"><br>
     <img *ngIf="(featuredPhotosStream | async)?.url2 as photoUrl" [src]="photoUrl" alt="Featured Photo 2">
   </div>
-<div>
+</div>
+<br>
+<hr>
+<h2>
+  Photo List
+</h2>    
+  <button type="type" (click)=triggerInput(featurePhotosInput)>Upload Photo</button>
+  <br>
+  <input #featurePhotosInput style="display:none;" type="file" (change)="photoSelectedForList($event)"><br>
+  <img *ngFor="let photo of this.photoListStream | async" [src]="photo.url" alt="Photo in the list">
